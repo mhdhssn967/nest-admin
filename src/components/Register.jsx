@@ -10,7 +10,7 @@ const Register = () => {
     position: "",
     email: "",
     password: "",
-    logo: null,
+    logo: ""
   });
   console.log(formData);
 
@@ -95,15 +95,18 @@ const Register = () => {
           />
         </label>
 
-        <label>Company Logo</label>
-        <input
-          className="file-input"
-          type="file"
-          accept="image/*"
-          onChange={(e) =>
-            setFormData({ ...formData, logo: e.target.files[0] })
-          }
-        />
+        <label>
+          Logo Link:
+          <input
+            type="text"
+            name="logo"
+            value={formData.logo}
+            onChange={(e) =>
+              setFormData({ ...formData, logo: e.target.value })
+            }
+            required
+          />
+        </label>
 
         <button type="submit">Register</button>
       </form>
